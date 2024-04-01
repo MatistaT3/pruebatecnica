@@ -12,7 +12,7 @@ router.get('/posts', getAllPosts);
 
 router.post('/posts', createPost);
 
-router.delete('/posts:id', deletePost);
+router.delete('/posts/:id', deletePost);
 
 router.get('/posts/:search', getFilteredPosts);
 

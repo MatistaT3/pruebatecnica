@@ -1,6 +1,6 @@
 const pool = require('../db');
 
-const getAllPosts = async (req, res) => {
+const getAllPosts = async (req, res, next) => {
   try {
     const allPosts = await pool.query('SELECT * FROM posts');
     res.json(allPosts.rows);
@@ -9,7 +9,7 @@ const getAllPosts = async (req, res) => {
   }
 };
 
-const createPost = async (req, res) => {
+const createPost = async (req, res, next) => {
   const { title, description } = req.body;
 
   try {
@@ -24,10 +24,10 @@ const createPost = async (req, res) => {
   }
 };
 
-const deletePost = async (req, res) => {
+const deletePost = async (req, res, next) => {
   const { id } = req.params;
   try {
-    await pool.query('DELETE FROM posts WHERE id = $1', [id]);
+    const result = await pool.query('DELETE FROM posts WHERE id = $1', [id]);
     if (result.rowCount === 0) {
       return res.status(404).json({ message: 'Post not found' });
     }
@@ -37,11 +37,11 @@ const deletePost = async (req, res) => {
   }
 };
 
-const getFilteredPosts = async (req, res) => {
+const getFilteredPosts = async (req, res, next) => {
   try {
-    const searchTerm = req.params.search;
+    const searchTerm = req.params.search.toLowerCase();
     const filteredPosts = await pool.query(
-      'SELECT * FROM posts WHERE title LIKE $1',
+      'SELECT * FROM posts WHERE LOWER(title) LIKE $1',
       [`%${searchTerm}%`]
     );
     res.json(filteredPosts.rows);
