@@ -39,7 +39,8 @@ const deletePost = async (req, res, next) => {
 
 const getFilteredPosts = async (req, res, next) => {
   try {
-    const searchTerm = req.params.search.toLowerCase();
+    const { search } = req.params;
+    const searchTerm = search.toLowerCase();
     const filteredPosts = await pool.query(
       'SELECT * FROM posts WHERE LOWER(title) LIKE $1',
       [`%${searchTerm}%`]

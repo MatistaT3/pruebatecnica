@@ -4,7 +4,7 @@ const {
   createPost,
   deletePost,
   getFilteredPosts,
-} = require('../controllers/tasks.controller');
+} = require('../controllers/posts.controller');
 
 const router = Router();
 

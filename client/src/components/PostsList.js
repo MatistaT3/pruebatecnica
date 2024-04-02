@@ -10,7 +10,6 @@ function PostsList() {
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.posts);
   const [filter, setFilter] = useState('');
-  const [search, setSearch] = useState('');
 
   const handleDelete = async (id) => {
     await fetch(`http://localhost:4000/posts/${id}`, {
@@ -20,7 +19,6 @@ function PostsList() {
   };
 
   const handleSearch = () => {
-    setSearch(filter);
     dispatch(fetchFilteredPosts(filter));
   };
 
