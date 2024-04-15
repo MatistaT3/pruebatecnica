@@ -1,4 +1,4 @@
-# pruebatecnicaTCIT
+# pruebatecnica
 
 En este proyecto se creó tanto el backend, como el frontend de una prueba tecnica para ingresar a la empresa TCIT
 Se utilizó para el backend NodeJs, para la base de datos PostgreSQL, para el frontend React, Redux, Tailwind
