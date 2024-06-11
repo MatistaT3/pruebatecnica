@@ -3,6 +3,8 @@
 En este proyecto se creó tanto el backend, como el frontend de una prueba tecnica para ingresar a la empresa TCIT
 Se utilizó para el backend NodeJs, para la base de datos PostgreSQL, para el frontend React, Redux, Tailwind
 
+Esta prueba técnica fue la primera que realicé, me ayudó ara aprender React, Redux y TailWind
+
 # Antes de empezar
 
 Se debe clonar el repositorio desde github, "git clone https://github.com/MatistaT3/pruebatecnicaTCIT.git"
